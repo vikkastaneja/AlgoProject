@@ -1,7 +1,6 @@
 package org.vikastaneja.examples;
 
 import com.google.common.base.Preconditions;
-import sun.jvm.hotspot.jdi.IntegerTypeImpl;
 
 import java.util.HashMap;
 import java.util.HashSet;

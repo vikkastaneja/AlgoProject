@@ -20,7 +20,7 @@ public class Main {
             tset.add(i);
         }
 
-        Pythagorean py = new Pythagorean();
+        /*Pythagorean py = new Pythagorean();
         Set<Set<Integer>> temp = py.getPythagorean(tset);
         Iterator<Set<Integer>> iter = temp.iterator();
         while(iter.hasNext()) {
@@ -33,6 +33,11 @@ public class Main {
             }
 
             System.out.println();
-        }
+        }*/
+
+        System.out.println(StringProcessing.hasAllUniqueCharacters(""));
+        System.out.println(StringProcessing.hasAllUniqueCharacters("a"));
+        System.out.println(StringProcessing.hasAllUniqueCharacters("abcdefgh"));
+        System.out.println(StringProcessing.hasAllUniqueCharacters("abcdeflk w[ "));
     }
 }

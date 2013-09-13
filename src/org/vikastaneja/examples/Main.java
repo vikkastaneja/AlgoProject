@@ -39,5 +39,12 @@ public class Main {
         System.out.println(StringProcessing.hasAllUniqueCharacters("a"));
         System.out.println(StringProcessing.hasAllUniqueCharacters("abcdefgh"));
         System.out.println(StringProcessing.hasAllUniqueCharacters("abcdeflk w[ "));
+
+        System.out.println("****Now validating Anagrams*****");
+        System.out.println(StringProcessing.areAnagrams("", ""));
+        System.out.println(StringProcessing.areAnagrams("abc","abcd"));
+        System.out.println(StringProcessing.areAnagrams("anagrams", "naagsmra"));
+        System.out.println(StringProcessing.areAnagrams("anagrams ", " naagsmra"));
+        System.out.println(StringProcessing.areAnagrams("anagramas", "naagsmras"));
     }
 }

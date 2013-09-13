@@ -30,4 +30,52 @@ public class StringProcessing {
 
         return true;
     }
+
+    public static boolean areAnagrams(final String s1, final String s2) {
+        Preconditions.checkNotNull(s1);
+        Preconditions.checkNotNull(s2);
+
+        if (s1.length() == 0 && s2.length() == 0) {
+            return true;
+        }
+
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+
+        for (char c : s1.toCharArray()) {
+            if (map.containsKey(c)) {
+                Integer i = map.get(c);
+                i++;
+                map.put(c, i);
+            }
+            else {
+                map.put(c, 1);
+            }
+        }
+
+        for (char c : s2.toCharArray()) {
+            if (!map.containsKey(c)) {
+                return false;
+            }
+
+            if (map.get(c) <= 0) {
+                return false;
+            }
+
+            Integer i = map.get(c);
+            i--;
+            map.put(c,i);
+        }
+
+        for(Integer i : map.values()) {
+            if (i != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

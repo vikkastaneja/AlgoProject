@@ -7,12 +7,18 @@
  */
 package org.vikastaneja.examples;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        List<Integer> list = new ArrayList<Integer>();
+        list.addAll(Arrays.asList(1,1,1,2,3,5,3,2,1,3,4,5,6,3,5,67,3,2,2,4,65,7,8,4,32));
+
+        List<Integer> retList = new GetOddCountFromList().getOddCountNumbers(list);
+        for (int i : retList) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
         System.out.println("Hello World");
         HashSet<Integer> tset = new HashSet<Integer>();
 

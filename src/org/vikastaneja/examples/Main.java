@@ -11,6 +11,17 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        LinkedList linkedList = new LinkedList();
+        linkedList.addNode(1);
+        linkedList.addNode(2);
+        linkedList.addNode(3);
+        linkedList.addNode(4);
+        linkedList.addNode(5);
+        linkedList.addNode(6);
+        linkedList.addNode(7);
+        linkedList.modifyList();
+
         List<Integer> list = new ArrayList<Integer>();
         list.addAll(Arrays.asList(1,1,1,2,3,5,3,2,1,3,4,5,6,3,5,67,3,2,2,4,65,7,8,4,32));
 

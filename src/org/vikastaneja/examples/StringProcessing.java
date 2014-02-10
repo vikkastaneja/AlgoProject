@@ -78,4 +78,43 @@ public class StringProcessing {
 
         return true;
     }
+
+
+    /**
+     * Optimized Naive String Matching algorithm as mentioned in the problem 32.1-2 in "Introduction to Algorithm"
+     * @param originalString    the original string to find pattern in.
+     * @param patternToSearch   the pattern to look for.
+     * @return  true of the pattern is matched, false otherwise
+     */
+    public static Boolean naiveStringMatchingOptimized(final String originalString, final String patternToSearch) {
+        Preconditions.checkNotNull(originalString);
+        Preconditions.checkNotNull(patternToSearch);
+
+        if (patternToSearch.isEmpty()) {
+
+            // returns true since empty string is valid substring of all strings
+            return true;
+        }
+
+        // Assuming all characters in pattern string are different
+        int oLength = originalString.length();
+        int pLength = patternToSearch.length();
+        for (int i = 0; i <= oLength - pLength;) {
+            int j = 0;
+            int k = i;
+            while (j < pLength
+                    && originalString.charAt(k) == patternToSearch.charAt(j)) {
+                k++;
+                j++;
+            }
+
+            if (j == pLength) {
+                return true;
+            }
+
+            i += (j == 0 ? 1 : j);
+        }
+
+        return false;
+    }
 }

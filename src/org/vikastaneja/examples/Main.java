@@ -12,6 +12,10 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        String original = "aaaabc";
+        String pattern = "abc";
+        Boolean isMatching = StringProcessing.naiveStringMatchingOptimized(original, pattern);
+
         LinkedList linkedList = new LinkedList();
         linkedList.addNode(1);
         linkedList.addNode(2);

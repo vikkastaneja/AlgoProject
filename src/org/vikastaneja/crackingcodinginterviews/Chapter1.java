@@ -96,4 +96,47 @@ public class Chapter1 {
         return true;
 
     }
+
+    /**
+     * Problem: Given a string, replace the spaces with %20
+     * Approach: Count number of spaces. Start from the end+2*numSpaces and copy the characters from the end of the string.
+     *           When space is hit, replace it with %20.
+     * @param chStr
+     */
+    public static void updateString(char[] chStr) {
+        Preconditions.checkNotNull(chStr) ;
+        if (chStr.length == 0) {
+            return;
+        }
+
+        //count number of spaces
+        Integer numSpaces = 0;
+
+        int n = 0;
+        for (char ch : chStr) {
+            if (ch == '\0') break;
+            numSpaces = ch == ' ' ? numSpaces + 1 : numSpaces;
+            n++;
+        }
+
+        if (numSpaces == 0) {
+            return;
+        }
+
+        n--;
+        int m = n + 2 * numSpaces;
+        while ( m > n && n > 0) {
+            if (chStr[n] == ' ') {
+                chStr[m--] = '0';
+                chStr[m--] = '2';
+                chStr[m--] = '%';
+                n--;
+                continue;
+            }
+
+            chStr[m--] = chStr[n--];
+        }
+
+        return;
+    }
 }

@@ -12,6 +12,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        Arr arr1 = new Arr();
+        Arr arr2 = new Arr();
+        arr1.array = new Integer[]{0,2};
+        arr1.min = 0;
+        arr1.max = 1;
+
+        arr2.array = new Integer[] {1,3};
+        arr2.min = 0;
+        arr2.max = 1;
+
+        System.out.println(MiscPrograms.findKth(arr1, arr2, 2));
         String original = "aaaabc";
         String pattern = "abc";
         Boolean isMatching = StringProcessing.naiveStringMatchingOptimized(original, pattern);

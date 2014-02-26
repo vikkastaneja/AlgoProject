@@ -1,5 +1,6 @@
 package org.vikastaneja.crackingcodinginterviews;
 
+
 /**
  * Created by vikastaneja on 2/11/14.
  */
@@ -25,6 +26,18 @@ public class MainClass {
         }
         Chapter1.updateString(ch);
         System.out.println(new String(ch));
+
+        System.out.println("**** First linkedlist problem ****");
+        Chapter2 ch2 = new Chapter2();
+        Chapter2.LinkedListNode head = ch2.new LinkedListNode();
+        head.next = ch2.new LinkedListNode();
+        head.value = 1;
+        head.next.next = ch2.new LinkedListNode();
+        head.next.value = 2;
+        head.next.next.next = null;
+        head.next.next.value = 1;
+
+        System.out.println(Chapter2.isPalindrome(head));
 
     }
 }

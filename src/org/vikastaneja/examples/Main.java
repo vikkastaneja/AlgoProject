@@ -12,6 +12,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        int[] arr = {1,2,3,4,5,6,1,5};
+        int[] a = {1,2,3};
+        Recursive.printSubsets(a);
+        MiscPrograms.printPairsWithSum(arr, 5);
+
+        MiscPrograms.rotateArray(arr, 3);
+        String str = "This%20is";
+        StringProcessing.decodeUrl(str);
+
+        System.out.println("Length of longest palindrome string: " + StringProcessing.lengthOfLongestPalidrome("dcabbac"));
+
         Arr arr1 = new Arr();
         Arr arr2 = new Arr();
         arr1.array = new Integer[]{0,2};

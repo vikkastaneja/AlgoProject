@@ -13,6 +13,47 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class StringProcessing {
+    private static int maxPalindromeLength(final String s, int current) {
+        Preconditions.checkNotNull(s);
+        Preconditions.checkArgument(current >= 0);
+        int left = current;
+        int right = current;
+              if (left > 0 && right < s.length() - 1 && s.charAt(left - 1) == s.charAt(right + 1)) {
+                  left--;
+                  right++;
+              } else if (right < s.length() - 1 && s.charAt(left) == s.charAt(right + 1)) {
+                  right++;
+              } else if (left > 0 && s.charAt(left - 1) == s.charAt(right))  {
+                  left--;
+              } else return 1;
+
+              while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+                  left--;
+                  right++;
+              }
+
+              return ((right - left) > s.length() ? s.length() : (right - left));
+    }
+
+    public static int lengthOfLongestPalidrome(final String str) {
+
+        Preconditions.checkNotNull(str);
+        if (str.length() == 0) return 0;
+        if (str.length() == 1) return 1;
+        int max = 0;
+        int current_index = 0;
+
+        for (int i = 0;i < str.length(); i++) {
+            int length = maxPalindromeLength(str, i);
+            if (max < length) {
+                max = length;
+                current_index = i;
+            }
+        }
+
+        return max;
+    }
+
     public static boolean hasAllUniqueCharacters(final String str) {
         Preconditions.checkNotNull(str);
         if (str.length() <= 1) {
@@ -116,5 +157,47 @@ public class StringProcessing {
         }
 
         return false;
+    }
+
+    public static void decodeUrl(String str) {
+        if (str == null) throw new RuntimeException();
+        if (str.length() <= 2) return;
+        char[] ch = str.toCharArray();
+        int current = 0;
+        int actual = 0;
+        Map<String, Character> map = new HashMap<String, Character>();
+        map.put("%20", ' ');
+        map.put("%3A", '?');
+        map.put("%3D", ':');
+        while (current <= str.length() - 3) {
+            while(ch[current] != '%') {
+                ch[actual++] = ch[current++];
+            }
+
+            char newCh = '\0';
+            String temp = ((Character)ch[current]).toString() + ((Character)ch[current + 1]).toString() + ((Character)ch[current + 2]).toString();
+            if (map.containsKey(temp)) {
+                newCh = map.get(temp);
+            }
+
+            if (newCh != '\0') {
+                ch[actual++] = newCh;
+                current += 3;
+                newCh = '\0';
+            }
+            else {
+                current++;
+                actual++;
+            }
+
+        }
+
+        while (current < str.length()) {
+            ch[actual++] = ch[current++];
+        }
+
+        ch[actual] = 0;
+        str = new String (ch);
+        return;
     }
 }

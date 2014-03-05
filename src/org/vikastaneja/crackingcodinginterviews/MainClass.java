@@ -6,6 +6,9 @@ package org.vikastaneja.crackingcodinginterviews;
  */
 public class MainClass {
     public static void main(String []args) {
+        Object obj = new Object();
+        Object obj1 = new Object();
+
         System.out.println("**** First string problem ****");
         String noDuplicates = "LazyBrown";
         String duplicates = "Lazy Brown Fox";

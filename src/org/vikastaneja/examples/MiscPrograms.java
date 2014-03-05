@@ -1,11 +1,58 @@
 package org.vikastaneja.examples;
 
 import com.google.common.base.Preconditions;
+import com.sun.swing.internal.plaf.synth.resources.synth_sv;
+import org.omg.CORBA.INTERNAL;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by vikastaneja on 2/21/14.
  */
 public class MiscPrograms {
+
+    private static int destFunction(int current, int jump, int length) {
+
+        Preconditions.checkArgument(current >= 0 && jump > 0 && current < length && jump < length);
+        return (current + jump + 1) % length;
+    }
+
+    public static void rotateArray(int []a, int jump) {
+        int start_index = 0;
+        int temp = start_index;
+        int next;
+        int local = a[temp];
+        int length = a.length;
+        while ((next = destFunction(temp, jump, length)) != start_index) {
+            int t = a[next];
+            a[next] = local;
+            local = t;
+            temp = next;
+        }
+    }
+
+    public static void printPairsWithSum(int []arr, int sum) {
+        if (arr == null) throw new RuntimeException();
+        if (arr.length == 0) return;
+        if (arr.length == 1 && arr[0] == sum) {
+            System.out.println("The only element in the array is equal to sum");
+            return;
+        }
+
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i : arr) {
+            if (map.containsKey(sum - i)) {
+                System.out.println("{" + i + "," + (sum - i) + "}");
+            }
+
+            if (!map.containsKey(i)) {
+                map.put(i, 1);
+            }
+        }
+    }
 
     /**
      * Assumption: Both arrays are of same size

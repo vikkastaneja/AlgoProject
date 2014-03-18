@@ -12,12 +12,26 @@ public final class BinaryTreeNode {
     private BinaryTreeNode right;
     private int value;
 
-    private BinaryTreeNode() {
+    public BinaryTreeNode() {
+        this.left = null;
+        this.right = null;
     }
 
     public BinaryTreeNode(final BinaryTreeNode left, final BinaryTreeNode right, int value) {
         this.left = left;
         this.right = right;
+        this.value = value;
+    }
+
+    public void setLeft(final BinaryTreeNode left) {
+        this.left = left;
+    }
+
+    public void setRight(final BinaryTreeNode right) {
+        this.right = right;
+    }
+
+    public void setValue(int value) {
         this.value = value;
     }
 

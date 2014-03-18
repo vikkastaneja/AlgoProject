@@ -11,10 +11,49 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        List<Pair>list1 = new ArrayList<Pair>();
+        Pair p1 = new Pair();
+        p1.x = 1;
+        p1.y = 3;
+        Pair p2 = new Pair();
+        p2.x = 2;
+        p2.y = 5;
+        Pair p3 = new Pair();
+        p3.x = 6;
+        p3.y = 9;
+        Pair p4 = new Pair();
+        p4.x = 5;
+        p4.y = 11;
+        list1.addAll(Arrays.asList(p1, p2, p3, p4));
+        List<Pair> retList1 = MergePairs.merge(list1);
 
+        System.out.println(3 & ~2);
+        BinaryTreeNode a = new BinaryTreeNode();
+        a.setValue(1);
+        BinaryTreeNode b = new BinaryTreeNode();
+        b.setValue(2);
+        BinaryTreeNode c = new BinaryTreeNode();
+        c.setValue(3);
+        BinaryTreeNode d = new BinaryTreeNode();
+        d.setValue(4);
+        BinaryTreeNode e = new BinaryTreeNode();
+        e.setValue(5);
+        BinaryTreeNode f = new BinaryTreeNode();
+        f.setValue(6);
+        BinaryTreeNode g = new BinaryTreeNode();
+        g.setValue(7);
+
+        e.setLeft(g);
+        c.setLeft(f);
+        b.setLeft(d);
+        b.setRight(e);
+        a.setLeft(b);
+        a.setRight(c);
+
+        System.out.println("=====>>> " + BinaryTreeProblems.isBalanced(a));
         int[] arr = {1,2,3,4,5,6,1,5};
-        int[] a = {1,2,3};
-        Recursive.printSubsets(a);
+        int[] a1 = {1,2,3};
+        Recursive.printSubsets(a1);
         MiscPrograms.printPairsWithSum(arr, 5);
 
         MiscPrograms.rotateArray(arr, 3);

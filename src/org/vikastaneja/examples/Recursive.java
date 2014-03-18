@@ -5,6 +5,10 @@ package org.vikastaneja.examples;
  */
 public class Recursive {
 
+    /**
+     * This program prints all the subsets of an array on numbers.
+     * @param arr   Array of integers for which subsets are needed.
+     */
     public static void printSubsets(int []arr) {
         if (arr == null) {
             throw new RuntimeException("arr can't be null");
@@ -23,6 +27,13 @@ public class Recursive {
         printSubsets(arr, b, 0, arr.length-1);
     }
 
+    /**
+     * Actual recursive function that prints the subsets.
+     * @param arr       array of integers
+     * @param b         boolean array
+     * @param start     start index
+     * @param end       end index
+     */
     private static void printSubsets(int[]arr, boolean[]b, int start, int end) {
         if (arr == null) throw new RuntimeException("arr can't be null");
         if (b == null) throw new RuntimeException("boolean array can't be null");
@@ -38,6 +49,11 @@ public class Recursive {
         }
     }
 
+    /**
+     * Prints the array based on the boolean array<br\>
+     * @param arr   integer array
+     * @param b     boolean array
+     */
     private static void printArray(int []arr, boolean []b) {
         System.out.print("{");
         for(int i = 0; i < arr.length; i++)

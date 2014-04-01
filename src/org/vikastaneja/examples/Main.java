@@ -11,6 +11,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        int[][]array = {{0,0,0},{0,1,1},{0,0,1}};
+        System.out.println(IslandProblem.isIslandPresent(array,3,3));
+
         List<Pair>list1 = new ArrayList<Pair>();
         Pair p1 = new Pair();
         p1.x = 1;

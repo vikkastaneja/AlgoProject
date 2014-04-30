@@ -11,6 +11,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        byte[]b1 = {1,3,5,0,6,7,8,9};
+        byte[]b2 = {-1,0,-45,4,2,5,0};
+        MiscPrograms.printDuplicates(null, new byte[]{});
+
         int[][]array = {{0,0,0},{0,1,1},{0,0,1}};
         System.out.println(IslandProblem.isIslandPresent(array,3,3));
 

@@ -4,15 +4,65 @@ import com.google.common.base.Preconditions;
 import com.sun.swing.internal.plaf.synth.resources.synth_sv;
 import org.omg.CORBA.INTERNAL;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by vikastaneja on 2/21/14.
  */
 public class MiscPrograms {
+    /**
+     * Helper function for {@link org.vikastaneja.examples.MiscPrograms#printDuplicates(byte[], byte[])}
+     * @param b
+     * @return
+     */
+    private static int getPosition(byte b) {
+        return 127 + (int)b;
+    }
+
+    /**
+     * Print duplicates from two arrays of 8-bit integers
+     * @param b1
+     * @param b2
+     */
+    public static void printDuplicates(byte []b1, byte[]b2) {
+        if (b1 == null || b2 == null) {
+            throw new RuntimeException("Either of the arrays is null");
+        }
+
+        if (b1.length == 0 || b2.length == 0) {
+            System.out.println("No duplicates found");
+            return;
+        }
+
+        boolean []ba = new boolean[255];
+        for (int i = 0; i < 255; i++) {
+            ba[i] = false;
+        }
+
+        for (byte b: b1) {
+            ba[getPosition(b)] = true;
+        }
+
+        List<Byte> l = new ArrayList<Byte>();
+
+        for (byte b : b2) {
+            if (ba [getPosition(b)] && !l.contains(b)) {
+                l.add(b);
+            }
+        }
+
+        if (l.size() == 0) {
+            System.out.println("No duplicates found");
+            l = null;
+            return;
+        }
+
+        for (byte b : l) {
+            System.out.print(b + " ");
+        }
+
+        System.out.println();
+    }
 
     private static int destFunction(int current, int jump, int length) {
 

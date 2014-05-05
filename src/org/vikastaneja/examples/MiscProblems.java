@@ -40,6 +40,7 @@ public class MiscProblems {
 
 		// Now stack contain all merged intervals
 		intervals = null;
+		intervals = new ArrayList<Interval>();
 		while(!stack.empty()) {
 			intervals.add(stack.pop(), 0);
 		}

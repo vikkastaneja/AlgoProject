@@ -8,20 +8,22 @@ import org.vikastaneja.crackingcodinginterviews.Node;
 public class Main {
     public static void main(String[] args) {
         Node tree = new Node();
-        tree.value = 2;
+        tree.value = 20;
         tree.left = new Node();
-        tree.left.value = 3;
+        tree.left.value = 10;
         tree.right = new Node();
-        tree.right.value = 5;
+        tree.right.value = 35;
         tree.left.left = new Node();
-        tree.left.left.value = -1;
+        tree.left.left.value = 5;
         tree.left.right = new Node();
-        tree.left.right.value = 2;
-        tree.left.right.left = new Node();
-        tree.left.right.left.value = -1;
-        tree.left.right.right = new Node();
-        tree.left.right.right.value = -3;
+        tree.left.right.value = 15;
+//        tree.left.right.left = new Node();
+//        tree.left.right.left.value = 25;
+//        tree.left.right.right = new Node();
+//        tree.left.right.right.value = 40;
 
+        Trees.printNth(tree, 2);
+        
         Trees.deleteZeroSum(tree);
     }
 }

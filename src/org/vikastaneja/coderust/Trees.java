@@ -6,6 +6,41 @@ import org.vikastaneja.crackingcodinginterviews.Node;
  * Created by vikastaneja on 3/31/14.
  */
 public class Trees {
+	private static int nth;
+	public static void printNth(Node tree, int n) {
+		if (tree == null) {
+			throw new NullPointerException();
+		}
+		
+		if (n <= 0) {
+			throw new RuntimeException();
+		}
+		
+		nth = n;
+		printNthLargest(tree);
+	}
+	
+	private static void printNthLargest(Node tree) {
+		if (tree == null) {
+			return;
+		}
+		
+		if (nth > 0) {
+			printNthLargest(tree.left);
+		}
+		
+		nth--;
+		if (nth == 0) {
+			System.out.println(tree.value);
+			return;
+		}
+		
+		if (nth > 0) {
+			printNthLargest(tree);
+		}
+		
+	}
+	
     public static int deleteZeroSum(Node tree) {
         if (tree == null) return 0;
         int left = deleteZeroSum(tree.left);

@@ -36,7 +36,7 @@ public class Trees {
 		}
 		
 		if (nth > 0) {
-			printNthLargest(tree);
+			printNthLargest(tree.right);
 		}
 		
 	}

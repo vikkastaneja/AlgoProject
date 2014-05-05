@@ -22,7 +22,7 @@ public class Main {
 //        tree.left.right.right = new Node();
 //        tree.left.right.right.value = 40;
 
-        Trees.printNth(tree, 2);
+        Trees.printNth(tree, 5);
         
         Trees.deleteZeroSum(tree);
     }

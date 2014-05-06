@@ -21,28 +21,27 @@ public class MiscProblems {
 		// Commenting this until sort is available for Interval class
 		// Collections.sort(intervals);
 
-		Stack<Interval> stack = new Stack<Interval>();
-		for (Interval interval : intervals) {
+		Stack<Intervals> stack = new Stack<Intervals>();
+		for (Intervals interval : intervals) {
 			if (stack.empty()) {
 				stack.push(interval);
 				continue;
 			}
 
-			Interval temp = stack.pop();
+			Intervals temp = stack.pop();
 			if (temp.end < interval.start) {
 				stack.push(temp);
 				stack.push(interval);
 			} else {
-				temp.end = interval.end;
+				temp.end = (interval.end > temp.end) ? interval.end : temp.end;
 				stack.push(temp);
 			}
 		}
 
 		// Now stack contain all merged intervals
-		intervals = null;
-		intervals = new ArrayList<Interval>();
+		intervals.clear();
 		while(!stack.empty()) {
-			intervals.add(stack.pop(), 0);
+			intervals.add(0, stack.pop());
 		}
 	}
 }

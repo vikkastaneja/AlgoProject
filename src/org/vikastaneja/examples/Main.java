@@ -11,6 +11,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        List<Intervals> lister = new ArrayList<Intervals>();
+        lister.addAll(Arrays.asList(new Intervals(1,7), new Intervals(3,6), new Intervals(8,10)));
+
+        MiscProblems.mergeIntervals(lister);
         byte[]b1 = {1,3,5,0,6,7,8,9};
         byte[]b2 = {-1,0,-45,4,2,5,0};
         MiscPrograms.printDuplicates(null, new byte[]{});

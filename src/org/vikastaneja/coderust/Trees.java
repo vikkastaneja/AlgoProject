@@ -84,5 +84,17 @@ public class Trees {
 
             System.out.print(temp.value + " ");
         }
+
     }
+
+    public static void swapLeftRight(Node node) {
+        if (node == null) return;
+        swapLeftRight(node.left);
+        swapLeftRight(node.right);
+        Node left = node.left;
+        Node right = node.right;
+        node.left = right;
+        node.right = left;
+    }
+
 }

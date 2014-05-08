@@ -24,6 +24,8 @@ public class Main {
 
         Trees.levelOrderTraversal(tree);
 
+        Trees.swapLeftRight(tree);
+
         Trees.printNth(tree, 5);
         
         Trees.deleteZeroSum(tree);

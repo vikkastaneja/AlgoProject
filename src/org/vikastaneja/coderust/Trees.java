@@ -3,8 +3,8 @@ package org.vikastaneja.coderust;
 import org.vikastaneja.crackingcodinginterviews.Node;
 import org.vikastaneja.examples.Intervals;
 
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
+import java.util.LinkedList;
 
 /**
  * Created by vikastaneja on 3/31/14.
@@ -55,41 +55,34 @@ public class Trees {
         return left + right + tree.value;
     }
 
-    public static void mergeIntervals(List<Intervals> intervals) {
-        if (intervals == null) {
-            throw new RuntimeException("List of intervals can't be null");
+    public static void levelOrderTraversal(Node root) {
+        if (root == null) {
+            throw new NullPointerException("Root can't be null");
         }
 
-        if (intervals.size() <= 1) {
-            System.out.println("No need for processing the list");
-            return;
-        }
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+        queue.add(null);
 
-        // Commenting this until sort is available for Interval class
-        // Collections.sort(intervals);
+        while(!queue.isEmpty()) {
+            Node temp = queue.remove();
 
-        Stack<Intervals> stack = new Stack<Intervals>();
-        for (Intervals interval : intervals) {
-            if (stack.empty()) {
-                stack.push(interval);
+            if (temp == null) {
+                System.out.println();
                 continue;
             }
 
-            Intervals temp = stack.pop();
-            if (temp.end < interval.start) {
-                stack.push(temp);
-                stack.push(interval);
-            } else {
-                temp.end = (interval.end > temp.end) ? interval.end : temp.end;
-                stack.push(temp);
+            if (temp.left != null) {
+                queue.add(temp.left);
             }
-        }
+            if (temp.right != null) {
+               queue.add(temp.right);
+            }
+            if (queue.peek() == null) {
+                queue.add(null);
+            }
 
-        // Now stack contain all merged intervals
-        intervals.clear();
-        while(!stack.empty()) {
-            intervals.add(0, stack.pop());
+            System.out.print(temp.value + " ");
         }
     }
-
 }

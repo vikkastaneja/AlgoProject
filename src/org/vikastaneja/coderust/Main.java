@@ -22,6 +22,8 @@ public class Main {
 //        tree.left.right.right = new Node();
 //        tree.left.right.right.value = 40;
 
+        Trees.printPerimeter(tree);
+
         Trees.levelOrderTraversal(tree);
 
         Trees.swapLeftRight(tree);

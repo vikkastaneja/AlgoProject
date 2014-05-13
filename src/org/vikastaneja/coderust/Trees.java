@@ -1,7 +1,6 @@
 package org.vikastaneja.coderust;
 
 import org.vikastaneja.crackingcodinginterviews.Node;
-import org.vikastaneja.examples.Intervals;
 
 import java.util.*;
 import java.util.LinkedList;
@@ -97,4 +96,68 @@ public class Trees {
         node.right = left;
     }
 
+    private static void printLeftBranch(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        Node temp = root;
+        while (temp.left != null && temp.right != null) {
+            System.out.print(temp.value + " ");
+            if (temp.left != null) {
+                temp = temp.left;
+            } else if (temp.right != null) {
+                temp = temp.right;
+            }
+        }
+    }
+
+    private static void printLeaves(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        printLeaves(root.left);
+        if (root.left == null && root.right == null) {
+            System.out.print(root.value + " ");
+        }
+
+        printLeaves(root.right);
+    }
+
+    private static void printRightBranch(Node root) {
+        if (root == null) {
+            return;
+        }
+        Node temp = root;
+        Stack<Node> stack = new Stack<Node>();
+
+        stack.push(temp);
+        temp = temp.right;
+        while(temp.left != null && temp.right != null) {
+            if (temp.right != null) {
+                temp = temp.right;
+            } else if (temp.left != null) {
+                temp = temp.left;
+            }
+
+            stack.push(temp);
+        }
+
+        while (stack.peek() != root) {
+            System.out.print(stack.pop().value + " ");
+        }
+    }
+
+    public static void printPerimeter(Node root) {
+        if (root == null) {
+            System.out.println("Root is null. Hence will not print empty or null tree");
+            return;
+        }
+
+        printLeftBranch(root);
+        printLeaves(root);
+        printRightBranch(root);
+        System.out.println();
+    }
 }

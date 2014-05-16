@@ -7,6 +7,16 @@ import org.vikastaneja.crackingcodinginterviews.Node;
  */
 public class Main {
     public static void main(String[] args) {
+
+        MyStack<Integer> st = new MyStack<Integer>();
+
+        st.push(1);
+        System.out.println(st.pop());
+
+        st.push(2);
+        st.push(3);
+        System.out.println(st.pop());
+
         Node tree = new Node();
         tree.value = 20;
         tree.left = new Node();

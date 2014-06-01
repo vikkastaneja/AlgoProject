@@ -7,10 +7,31 @@
  */
 package org.vikastaneja.examples;
 
+import com.sun.tools.javac.util.Convert;
+
+import java.io.Console;
 import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
+
+        String s = "1 0 1 0 0 1 0 1";
+        boolean[] barray = MaxNumberBits.stringToBitarray(s);
+        //{true,false,true,false,false,true,false,true};
+
+        MiscProblems.printCombinationsOfZeroAndOne(-1);
+        MiscProblems.printCombinationsOfZeroAndOne(0);
+
+        MiscProblems.printCombinationsOfZeroAndOne(1);
+
+        MiscProblems.printCombinationsOfZeroAndOne(2);
+        MiscProblems.printCombinationsOfZeroAndOne(3);
+        MiscProblems.printCombinationsOfZeroAndOne(4);
+
+        //1, 0, 1, 0, 0, 1, 0, 1
+        System.out.println(MaxNumberBits.FindMax(barray));
+
         List<Intervals> lister = new ArrayList<Intervals>();
         lister.addAll(Arrays.asList(new Intervals(1,7), new Intervals(3,6), new Intervals(8,10)));
 

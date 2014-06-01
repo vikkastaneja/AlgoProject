@@ -44,4 +44,45 @@ public class MiscProblems {
 			intervals.add(0, stack.pop());
 		}
 	}
+
+    /**
+     * Print combinations of zero and ones, given that number of digits are known. <br/>
+     * For example, given 2, combinations are 00, 01, 10, and 11
+     * @param digits - number of digits
+     */
+    public static void printCombinationsOfZeroAndOne(int digits) {
+        if (digits <= 0) {
+            System.out.println("Nothing to print");
+            return;
+        }
+
+        int []a = new int[digits];
+        fill (a, 0, 0, digits - 1);
+        fill (a, 1, 0, digits - 1);
+    }
+
+    /**
+     * Helper method to print the combination in {@link org.vikastaneja.examples.MiscProblems#printCombinationsOfZeroAndOne(int)}
+     * @param a - array to be filled into
+     * @param digit - digit to be filled in start position;
+     * @param start - begin position to be filled in
+     * @param end - end position in the array. In ideal conditions, the start <= end
+     */
+    private static void fill (int []a, int digit, int start, int end) {
+        if (a == null) {
+            throw new RuntimeException("Array is null");
+        }
+
+        a[start] = digit;
+        if (start == end) {
+            for (int i : a) {
+                System.out.print(i);
+            }
+            System.out.println();
+            return;
+        }
+
+        fill(a, 0, start + 1, end);
+        fill(a, 1, start + 1, end);
+    }
 }

@@ -16,6 +16,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        String tstr = "a?bc?cb?";
+        MiscProblems.replaceMarkWith0and1(tstr);
+
         String s = "1 0 1 0 0 1 0 1";
         boolean[] barray = MaxNumberBits.stringToBitarray(s);
         //{true,false,true,false,false,true,false,true};

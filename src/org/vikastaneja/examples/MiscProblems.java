@@ -85,4 +85,50 @@ public class MiscProblems {
         fill(a, 0, start + 1, end);
         fill(a, 1, start + 1, end);
     }
+
+    /**
+     * Given a string (for example: "a?bc?def?g"), write a program to generate all the possible strings by replacing ? with 0 and 1 <br/>
+     * Logic is to replace the array's element with '?' and then recurse
+     * @param str
+     */
+    public static void replaceMarkWith0and1(String str) {
+        if (str == null) {
+            throw new NullPointerException("Parameter passed is null");
+        }
+
+        if (str.isEmpty()) {
+            System.out.println("String is empty");
+            return;
+        }
+
+        char[] carray = str.toCharArray();
+        printWithMark(carray, 0);
+    }
+
+    /**
+     * Private function that actually performs the task of replacement and then recursion in {@link org.vikastaneja.examples.MiscProblems#replaceMarkWith0and1(String)}
+     * @param str
+     * @param current
+     */
+    private static void printWithMark(char[] str, int current) {
+        if (str == null) {
+            throw new NullPointerException("Parameter str is null");
+        }
+
+        if (current == str.length) {
+            System.out.println(new String(str));
+            return;
+        }
+
+        if (str[current] == '?') {
+            str[current] = '0';
+            printWithMark(str, current + 1);
+            str[current] = '1';
+            printWithMark(str, current + 1);
+            str[current] = '?';
+        } else {
+            current++;
+            printWithMark(str, current);
+        }
+    }
 }

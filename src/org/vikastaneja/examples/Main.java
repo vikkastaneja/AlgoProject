@@ -7,14 +7,19 @@
  */
 package org.vikastaneja.examples;
 
-import com.sun.tools.javac.util.Convert;
-
-import java.io.Console;
 import java.util.*;
 
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println(MiscProblems.instanceCompare("", ""));
+        System.out.println(MiscProblems.instanceCompare("abc", "aa"));
+        System.out.println(MiscProblems.instanceCompare("aa", "abc"));
+        System.out.println(MiscProblems.instanceCompare("abc", "abc"));
+        System.out.println(MiscProblems.instanceCompare("aaabbddddd", "ddcccccccb"));
+
+
 
         String tstr = "a?bc?cb?";
         MiscProblems.replaceMarkWith0and1(tstr);

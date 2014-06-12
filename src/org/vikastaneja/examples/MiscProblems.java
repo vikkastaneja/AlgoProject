@@ -1,6 +1,5 @@
 package org.vikastaneja.examples;
 
-import org.vikastaneja.examples.Intervals;
 import java.util.*;
 
 /**
@@ -89,7 +88,7 @@ public class MiscProblems {
     /**
      * Given a string (for example: "a?bc?def?g"), write a program to generate all the possible strings by replacing ? with 0 and 1 <br/>
      * Logic is to replace the array's element with '?' and then recurse
-     * @param str
+     * @param str input string
      */
     public static void replaceMarkWith0and1(String str) {
         if (str == null) {
@@ -107,8 +106,8 @@ public class MiscProblems {
 
     /**
      * Private function that actually performs the task of replacement and then recursion in {@link org.vikastaneja.examples.MiscProblems#replaceMarkWith0and1(String)}
-     * @param str
-     * @param current
+     * @param str input string
+     * @param current current index
      */
     private static void printWithMark(char[] str, int current) {
         if (str == null) {
@@ -130,5 +129,57 @@ public class MiscProblems {
             current++;
             printWithMark(str, current);
         }
+    }
+
+    /**
+     * From the input, return the string that has most number of common characters <br/>
+     * "aaabbddddd", "ddcccccccb" will return "aaabbddddd" <br/>
+     * "", "" will return ""
+     * @param str1 First input string
+     * @param str2 Second input string
+     * @return Resulting string
+     */
+    public static String instanceCompare(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            throw new NullPointerException("Either str1 or str2 is null");
+        }
+
+        if (str1.isEmpty() || str2.isEmpty()) {
+            return "";
+        }
+
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        Map<Character, Integer> map1 = new HashMap<Character, Integer>();
+
+        for (Character c : str1.toCharArray()) {
+            int count = 1;
+            if (map.containsKey(c)) {
+                count += map.get(c) + 1;
+            }
+            map.put(c, count);
+        }
+
+        for (Character c : str2.toCharArray()) {
+            int count = 1;
+            if (map1.containsKey(c)) {
+                count += map1.get(c) + 1;
+            }
+            map1.put(c, count);
+        }
+
+        int max = 0;
+        boolean isPresent = false;
+        Set<Character> list = map1.keySet();
+        for (Character c  :list) {
+           if (map.containsKey(c)) {
+               max += map.get(c);
+               max -= map1.get(c);
+               if (!isPresent) isPresent = true;
+           }
+        }
+
+        if (max < 0) return str2;
+        if (max > 0) return str1;
+        return (isPresent ? (str1.length() > str2.length() ? str1 : str2) : "");
     }
 }

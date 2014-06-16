@@ -148,4 +148,50 @@ public class MiscPrograms {
 
         return findKth(a, b, k/2);
     }
+
+    public static int timesFound(char [][]arr, String str) {
+        if (arr == null || arr.length == 0 || str.length() == 0) {
+            return 0;
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++){
+                if (arr[i][j] == str.charAt(0))
+                    count += countTimes(arr, i, j, str.toCharArray(), 0);
+            }
+        }
+
+        return count;
+    }
+
+    private static int countTimes(char[][]arr, int i, int j, char[] str, int current) {
+        if (current == str.length) {
+            return 1;
+        }
+
+        if (str[current] != arr[i][j]) {
+            return 0;
+        }
+
+        int times = 0;
+        if (i + 1 < arr.length) {
+            times += countTimes(arr, i+1, j, str, current+1);
+        }
+
+        if (j + 1 < arr[0].length) {
+            times += countTimes(arr, i, j+1, str, current+1);
+        }
+
+        if (i-1 > 0) {
+            times += countTimes(arr, i-1, j, str, current+1);
+        }
+
+        if (j-1 > 0) {
+            times += countTimes(arr, i, j-1, str, current+1);
+        }
+
+        return times;
+    }
 }

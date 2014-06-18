@@ -12,12 +12,12 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-		Node b = new Node(2);
-        Node a = new Node(1);
-        a.Neighbors.add(b);
-        a.Neighbors.add(new Node(3));
-        b.Neighbors.add(new Node(4));
-        GraphTraversals.depthFirstTraversal(a);
+		GraphNode b11 = new GraphNode(2);
+        GraphNode a11 = new GraphNode(1);
+        a11.Neighbors.add(b11);
+        a11.Neighbors.add(new GraphNode(3));
+        b11.Neighbors.add(new GraphNode(4));
+        GraphTraversals.depthFirstTraversal(a11);
 
         char[][]arr111 = {{'a','b','c'},
                        {'b','e','f'},

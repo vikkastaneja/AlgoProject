@@ -5,22 +5,22 @@ import java.util.*;
 /**
  * Created by vikastaneja on 6/5/14.
  */
-public class Node {
+public class GraphNode {
    
     public boolean Visited;
-    public List<Node> Neighbors;
+    public List<GraphNode> Neighbors;
     public int Value;
     
-    public Node(int value) {
-        this.Node(new List<Node>(), value);
+    public GraphNode(int value) {
+        this(new ArrayList<GraphNode>(), value);
     }
     
-    public Node(List<Node> neighbors, int value) {
+    public GraphNode(List<GraphNode> neighbors, int value) {
         this.Neighbors = neighbors;
         this.Value = value;
         this.Visited = false;
     }
     
-    private Node() {
+    private GraphNode() {
     }
 }

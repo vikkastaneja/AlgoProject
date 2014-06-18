@@ -5,7 +5,7 @@ package org.vikastaneja.examples;
  */
 public class GraphTraversals {
 
-    public static void depthFirstTraversal(Node node) {
+    public static void depthFirstTraversal(GraphNode node) {
         if (node == null) {
             throw new NullPointerException();
         }
@@ -16,7 +16,7 @@ public class GraphTraversals {
             System.out.print(node.Value + " ");
         }
         
-        for (Node n : node.Neighbors) {
+        for (GraphNode n : node.Neighbors) {
             depthFirstTraversal(n);
         }
     }

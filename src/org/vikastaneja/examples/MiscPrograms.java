@@ -167,7 +167,7 @@ public class MiscPrograms {
     }
 
     private static int countTimes(char[][]arr, int i, int j, char[] str, int current) {
-        if (current == str.length) {
+        if (current == str.length - 1 && arr[i][j] == str[current]) {
             return 1;
         }
 

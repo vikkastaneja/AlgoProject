@@ -22,7 +22,7 @@ public class Main {
         char[][]arr111 = {{'a','b','c'},
                        {'b','e','f'},
                        {'g','h','i'}};
-        String str111 = "abe";
+        String str111 = "cfi";
         int retValue = MiscPrograms.timesFound(arr111, str111);
 
         System.out.println(MiscProblems.instanceCompare("", ""));

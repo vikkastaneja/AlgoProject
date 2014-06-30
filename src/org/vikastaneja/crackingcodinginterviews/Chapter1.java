@@ -1,6 +1,7 @@
 package org.vikastaneja.crackingcodinginterviews;
 
 import com.google.common.base.Preconditions;
+import com.sun.javaws.exceptions.InvalidArgumentException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +11,77 @@ import java.util.Map;
  * Created by vikastaneja on 2/10/14.
  */
 public class Chapter1 {
+
+    /**
+     * Helper method for {@link org.vikastaneja.crackingcodinginterviews.Chapter1#zeroRowsAndColumns(int[][])}<br/>
+     * The method zeroes the row
+     * @param a
+     * @param r
+     */
+    private static void clearRow(int [][]a, int r) {
+        if (a == null || a.length == 0)
+            throw new NullPointerException("Passed array has some issues with its length");
+
+        if (r < 0 || r >= a.length)
+            throw new IllegalArgumentException("Passed row has invalid value");
+
+        for (int i = 0; i < a[0].length; i++)
+            a[r][i] = 0;
+    }
+
+    /**
+     * Helper method for {@link org.vikastaneja.crackingcodinginterviews.Chapter1#zeroRowsAndColumns(int[][])}<br/>
+     * The method zeroes the column
+     * @param a
+     * @param c
+     */
+    private static void clearColumn(int [][]a, int c) {
+        if (a == null || a.length == 0)
+            throw new NullPointerException("Passed array has some issues with its length");
+
+        if (c < 0 || c >= a.length)
+            throw new IllegalArgumentException("Passed column has invalid value");
+
+        for (int i = 0; i < a.length; i++)
+            a[i][c] = 0;
+    }
+
+    /**
+     * Objective is to clear the row and columns for all the elements that are zero<br/>
+     * It can be achieved using two boolean arrays, one for rows and another for column.<br/>
+     * In the first parse, we will set all the entries in the rows and column array if the element is zero<br/>
+     * In the second parse, parse the rows and columns arrays. If the entry is true, that row/column is zeroed in original array.
+     * @param a Array which needs to be zeroed out.
+     */
+    public static void zeroRowsAndColumns(int[][]a) {
+        if (a == null || a[0].length == 0) {
+            throw new NullPointerException("Passed array is either null or of zero length");
+        }
+
+        boolean []rows = new boolean[a.length];
+        boolean []columns = new boolean[a[0].length];
+        for (int r = 0; r < rows.length; r++) {
+            rows[r] = false;
+        }
+
+        for (int c = 0; c < columns.length; c++) {
+            columns[c] = false;
+        }
+
+        for (int i = 0; i < a.length; i++)
+            for (int j = 0; j < a[0].length; j++)
+                if (a[i][j] == 0) {
+                    if (!rows[i]) rows[i] = !rows[i];
+                    if (!columns[j]) columns[j] = !columns[j];
+                }
+
+        for (int r = 0; r < rows.length; r++)
+            if (rows[r]) clearRow(a, r);
+
+        for (int c = 0; c < columns.length; c++)
+            if (columns[c]) clearColumn(a, c);
+    }
+
     /**
      * Question: To find if duplicate characters are present in a string.<br/>
      * Solution implementing: Assuming the range is small, keep an array of booleans of 256 characters initialized to false<br/>

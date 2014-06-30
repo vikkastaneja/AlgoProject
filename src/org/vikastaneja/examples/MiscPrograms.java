@@ -84,6 +84,13 @@ public class MiscPrograms {
         }
     }
 
+    /**
+     * Prints an array with the sum as passed as an argument to the function<br/>
+     * Logic is to keep a map. Now for each number, if the sum-number exists in the array, then returns the number and sum-i<br/>
+     * Else, add the sum-i to the map.
+     * @param arr
+     * @param sum
+     */
     public static void printPairsWithSum(int []arr, int sum) {
         if (arr == null) throw new RuntimeException();
         if (arr.length == 0) return;
@@ -149,6 +156,13 @@ public class MiscPrograms {
         return findKth(a, b, k/2);
     }
 
+    /**
+     * This program finds how many times a word occurs in a 2D array of characters<br/>
+     * Logic is simple back tracking.
+     * @param arr - array of 2D characters
+     * @param str - string to be found
+     * @return - number of times the string is present in the 2D array
+     */
     public static int timesFound(char [][]arr, String str) {
         if (arr == null || arr.length == 0 || str.length() == 0) {
             return 0;
@@ -166,6 +180,17 @@ public class MiscPrograms {
         return count;
     }
 
+    /**
+     * Helper method for {@link org.vikastaneja.examples.MiscPrograms#timesFound(char[][], String)} <br/>
+     * The solution performs recursion. For each character, we look for next character in all four directions. <br/>
+     * Note that the solution can be expanded for all eight directions. But I have decided to keep it simple.
+     * @param arr
+     * @param i
+     * @param j
+     * @param str
+     * @param current
+     * @return
+     */
     private static int countTimes(char[][]arr, int i, int j, char[] str, int current) {
         if (current == str.length - 1 && arr[i][j] == str[current]) {
             return 1;

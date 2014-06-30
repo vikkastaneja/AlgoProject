@@ -12,7 +12,25 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-		GraphNode b11 = new GraphNode(2);
+
+        int[] arr123 = {1,0,0,5,6,0,1};
+        ArrayProblems.moveZeroesToEnd(arr123);
+
+        arr123 = new int[]{0,0,1,0,0,5,6,0,1};
+        ArrayProblems.moveZeroesToEnd(arr123);
+
+        arr123 = new int[]{0,0,0,0,0};
+        ArrayProblems.moveZeroesToEnd(arr123);
+
+        ArrayProblems.moveZeroesToEnd(new int[0]);
+
+        try {
+            ArrayProblems.moveZeroesToEnd(null);
+        } catch (NullPointerException ex) {
+            if (!ex.getMessage().equals("Null array is passed")) throw ex;
+        }
+
+        GraphNode b11 = new GraphNode(2);
         GraphNode a11 = new GraphNode(1);
         a11.Neighbors.add(b11);
         a11.Neighbors.add(new GraphNode(3));

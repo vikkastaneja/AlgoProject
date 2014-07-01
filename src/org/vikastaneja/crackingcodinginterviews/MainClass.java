@@ -1,11 +1,51 @@
 package org.vikastaneja.crackingcodinginterviews;
 
 
+import java.util.Stack;
+
 /**
  * Created by vikastaneja on 2/11/14.
  */
 public class MainClass {
     public static void main(String []args) {
+
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.push(1);
+        stack.push(5);
+        stack.push(2);
+        stack.push(4);
+        stack.push(3);
+        Chapter3.sortStack(stack);
+
+        Chapter3.sortStack(new Stack<Integer>());
+        try {
+            Chapter3.sortStack(null);
+        } catch (NullPointerException ex) {
+            if (!ex.getMessage().equals("Stack passed is empty")) throw ex;
+        }
+
+        stack = null;
+        stack = new Stack<Integer>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(4);
+
+        Chapter3.sortStack(stack);
+
+        stack = null;
+        stack = new Stack<Integer>();
+        stack.push(4);
+        stack.push(4);
+        stack.push(3);
+        stack.push(2);
+        stack.push(-1);
+        stack.push(-100);
+
+        Chapter3.sortStack(stack);
+
         int [][]a = {{0,2,3,4,5,6},
                     {2,3,4,5,6,7},
                     {8,9,0,1,2,3},

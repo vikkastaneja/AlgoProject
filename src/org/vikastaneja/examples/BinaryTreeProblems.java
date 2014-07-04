@@ -5,6 +5,11 @@ package org.vikastaneja.examples;
  */
 public class BinaryTreeProblems {
 
+    /**
+     * Check of the binary tree is balanced binary tree
+     * @param root
+     * @return
+     */
     public static boolean isBalanced(final BinaryTreeNode root) {
         if (root == null) return true;
 
@@ -14,6 +19,12 @@ public class BinaryTreeProblems {
         return Math.abs(rightDepth - leftDepth) <= 1;
     }
 
+    /**
+     * Get the depth og the binary tree
+     * @param node
+     * @param depth
+     * @return
+     */
     private static int getDepth(final BinaryTreeNode node, int depth) {
         if (node == null) return depth;
         if (node.getLeft() == null && node.getRight() == null) return depth;

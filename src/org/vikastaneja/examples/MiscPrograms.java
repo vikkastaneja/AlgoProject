@@ -64,6 +64,7 @@ public class MiscPrograms {
         System.out.println();
     }
 
+
     private static int destFunction(int current, int jump, int length) {
 
         Preconditions.checkArgument(current >= 0 && jump > 0 && current < length && jump < length);

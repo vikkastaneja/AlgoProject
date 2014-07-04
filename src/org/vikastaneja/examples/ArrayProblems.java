@@ -4,6 +4,12 @@ package org.vikastaneja.examples;
  * Created by vikastaneja on 3/18/14.
  */
 public class ArrayProblems {
+    /**
+     * Private helper to reverse an array of integers
+     * @param a
+     * @param start
+     * @param end
+     */
     private static void reverse(int []a, int start, int end) {
         if (a == null || a.length <= 1) return;
         if (start > end) return;
@@ -53,6 +59,11 @@ public class ArrayProblems {
         }
     }
 
+    /**
+     * Rotate an array of integers
+     * @param a
+     * @param n
+     */
     public static void circularMove(int[] a, int n) {
         if (a == null || a.length <= 1) return;
         if (n <= 0) return;

@@ -7,6 +7,10 @@ import java.util.*;
  */
 public class MiscProblems {
 
+    /**
+     * Merge the overlapping intervals in a list of pairs/tuples
+     * @param intervals
+     */
 	public static void mergeIntervals(List<Intervals> intervals) {
 		if (intervals == null) {
 			throw new RuntimeException("List of intervals can't be null");

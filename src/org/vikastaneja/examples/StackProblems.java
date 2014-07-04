@@ -8,6 +8,10 @@ import java.util.LinkedList;
  */
 public class StackProblems {
 
+    /**
+     * Reverse a stack.
+     * @param s
+     */
     public static void reverse(final Stack<Integer> s) {
         if (s == null) throw new RuntimeException("Stack is null");
         if (s.size() <= 1) return;

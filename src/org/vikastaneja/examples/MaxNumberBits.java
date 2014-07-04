@@ -5,6 +5,11 @@ package org.vikastaneja.examples;
  */
 public class MaxNumberBits {
 
+    /**
+     * Convert string of zeroes and ones to bit array
+     * @param s
+     * @return
+     */
     public static boolean[] stringToBitarray(String s) {
         if (s == null || s.isEmpty()) {
             throw new RuntimeException("String is null or empty");
@@ -29,6 +34,11 @@ public class MaxNumberBits {
         return barray;
     }
 
+    /**
+     *
+     * @param bitArray
+     * @return
+     */
     public static int FindMax(boolean[] bitArray) {
         if (bitArray == null || bitArray.length == 0)
             return 0;

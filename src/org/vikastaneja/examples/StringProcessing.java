@@ -13,6 +13,13 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class StringProcessing {
+
+    /**
+     * Helper function for {@link org.vikastaneja.examples.StringProcessing#lengthOfLongestPalidrome(String)}
+     * @param s
+     * @param current
+     * @return
+     */
     private static int maxPalindromeLength(final String s, int current) {
         Preconditions.checkNotNull(s);
         Preconditions.checkArgument(current >= 0);
@@ -35,6 +42,11 @@ public class StringProcessing {
               return ((right - left) > s.length() ? s.length() : (right - left));
     }
 
+    /**
+     * Find the length of longest palindrome in a string.
+     * @param str
+     * @return
+     */
     public static int lengthOfLongestPalidrome(final String str) {
 
         Preconditions.checkNotNull(str);
@@ -54,6 +66,11 @@ public class StringProcessing {
         return max;
     }
 
+    /**
+     * Check if a string has all unique characters.
+     * @param str
+     * @return
+     */
     public static boolean hasAllUniqueCharacters(final String str) {
         Preconditions.checkNotNull(str);
         if (str.length() <= 1) {
@@ -72,6 +89,12 @@ public class StringProcessing {
         return true;
     }
 
+    /**
+     * Check if two strings are anagrams/permutations
+     * @param s1
+     * @param s2
+     * @return
+     */
     public static boolean areAnagrams(final String s1, final String s2) {
         Preconditions.checkNotNull(s1);
         Preconditions.checkNotNull(s2);
@@ -159,6 +182,10 @@ public class StringProcessing {
         return false;
     }
 
+    /**
+     * Return a coded url string to a decoded one.
+     * @param str
+     */
     public static void decodeUrl(String str) {
         if (str == null) throw new RuntimeException();
         if (str.length() <= 2) return;

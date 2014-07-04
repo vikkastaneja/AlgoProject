@@ -12,6 +12,12 @@ import java.util.List;
  */
 public final class MergeTwoSortedLists<T extends Integer> {
 
+    /**
+     * Merge two sorted lists.
+     * @param list1
+     * @param list2
+     * @return
+     */
     public List<T> mergeLists(final List<T> list1, final List<T> list2) {
         if (list1 == null) {
             return list2;

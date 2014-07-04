@@ -6,6 +6,17 @@ import com.google.common.base.Preconditions;
  * Created by vikastaneja on 3/29/14.
  */
 public class IslandProblem {
+    /**
+     * To check if there is an island in a matrix of zeroes and ones<br/>
+     * Note that it does not validate if current element is other than zero or one.
+     * @param b
+     * @param a
+     * @param m
+     * @param n
+     * @param i
+     * @param j
+     * @return
+     */
     private static boolean checkIsland(boolean [][]b, int [][]a, int m, int n, int i, int j) {
         if (b[i][j]) return true;
 

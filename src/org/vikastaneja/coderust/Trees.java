@@ -10,6 +10,12 @@ import java.util.LinkedList;
  */
 public class Trees {
 	private static int nth;
+
+    /**
+     * Print the nth largest node in a binary search tree (BST)
+     * @param tree
+     * @param n
+     */
 	public static void printNth(Node tree, int n) {
 		if (tree == null) {
 			throw new NullPointerException();
@@ -43,7 +49,12 @@ public class Trees {
 		}
 		
 	}
-	
+
+    /**
+     * Delete zero sum subtrees
+     * @param tree
+     * @return
+     */
     public static int deleteZeroSum(Node tree) {
         if (tree == null) return 0;
         int left = deleteZeroSum(tree.left);
@@ -54,6 +65,10 @@ public class Trees {
         return left + right + tree.value;
     }
 
+    /**
+     * Traverse the tree level wide.
+     * @param root
+     */
     public static void levelOrderTraversal(Node root) {
         if (root == null) {
             throw new NullPointerException("Root can't be null");
@@ -86,6 +101,10 @@ public class Trees {
 
     }
 
+    /**
+     * Swap left and right subtrees
+     * @param node
+     */
     public static void swapLeftRight(Node node) {
         if (node == null) return;
         swapLeftRight(node.left);
@@ -96,6 +115,11 @@ public class Trees {
         node.right = left;
     }
 
+    /**
+     * Helper function for {@link org.vikastaneja.coderust.Trees#printPerimeter(org.vikastaneja.crackingcodinginterviews.Node)}<br/>
+     * To print left branch of a tree
+     * @param root
+     */
     private static void printLeftBranch(Node root) {
         if (root == null) {
             return;
@@ -112,6 +136,11 @@ public class Trees {
         }
     }
 
+    /**
+     * Helper function for {@link org.vikastaneja.coderust.Trees#printPerimeter(org.vikastaneja.crackingcodinginterviews.Node)}<br/>
+     * To print left leaves of a tree
+     * @param root
+     */
     private static void printLeaves(Node root) {
         if (root == null) {
             return;
@@ -125,6 +154,11 @@ public class Trees {
         printLeaves(root.right);
     }
 
+    /**
+     * Helper function for {@link org.vikastaneja.coderust.Trees#printPerimeter(org.vikastaneja.crackingcodinginterviews.Node)}<br/>
+     * To print right branch of a tree
+     * @param root
+     */
     private static void printRightBranch(Node root) {
         if (root == null) {
             return;
@@ -149,6 +183,10 @@ public class Trees {
         }
     }
 
+    /**
+     * Print perimeter of a binary tree
+     * @param root
+     */
     public static void printPerimeter(Node root) {
         if (root == null) {
             System.out.println("Root is null. Hence will not print empty or null tree");

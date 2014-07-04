@@ -5,6 +5,10 @@ package org.vikastaneja.examples;
  */
 public class GraphTraversals {
 
+    /**
+     * Depth first traversal of a directed graph
+     * @param node
+     */
     public static void depthFirstTraversal(GraphNode node) {
         if (node == null) {
             throw new NullPointerException();

@@ -5,12 +5,20 @@ package org.vikastaneja.crackingcodinginterviews;
  */
 public class Chapter2 {
 
+    /**
+     * Single Linked list node
+     */
     public class LinkedListNode {
         public Integer value;
         public LinkedListNode next;
 
     }
 
+    /**
+     * Find out if the linked list makes a palindrome
+     * @param node
+     * @return
+     */
     public static boolean isPalindrome(LinkedListNode node) {
         if (node == null || node.next == null) {
             return true;

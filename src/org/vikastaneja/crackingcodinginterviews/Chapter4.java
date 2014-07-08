@@ -11,6 +11,77 @@ import java.util.List;
 public class Chapter4 {
 
     /**
+     * Helper function to find if the node is in a subtree<br/>
+     * Helper function for {@link org.vikastaneja.crackingcodinginterviews.Chapter4#findLca(Node, Node, Node)}
+     * @param node
+     * @param child
+     * @return
+     */
+    private static boolean isInSubtree(Node node, Node child) {
+        if (node == null) return false;
+
+        if (node == child || node.left == child || node.right == child) return true;
+        return isInSubtree(node.left, child) || isInSubtree(node.right, child);
+    }
+
+    /**
+     * Helper function to find if the node is in left subtree<br/>
+     * Helper function for {@link org.vikastaneja.crackingcodinginterviews.Chapter4#findLca(Node, Node, Node)}
+     * @param node
+     * @param child
+     * @return
+     */
+    private static boolean isLeft(Node node, Node child) {
+        return isInSubtree(node.left, child);
+    }
+
+    /**
+     * Helper function to find if the node is in right subtree<br/>
+     * Helper function for {@link org.vikastaneja.crackingcodinginterviews.Chapter4#findLca(Node, Node, Node)}
+     * @param node
+     * @param child
+     * @return
+     */
+    private static boolean isRight(Node node, Node child) {
+        return isInSubtree(node.right, child);
+    }
+
+    /**
+     * To find the least common ancestor (LCA) of two nodes in binary tree<br/>
+     * The logic is: If the two nodes are in different subtrees, then current node is the LCA<br/>
+     * Else move to the subtree where nodes are present.
+     * @param root
+     * @param node1
+     * @param node2
+     * @return
+     */
+    public static Node findLca(Node root, Node node1, Node node2) {
+        if (node1 == null || node2 == null) return null;
+        if (root == null)
+            throw new NullPointerException("Root in null");
+
+        Node temp = root;
+        while (temp != null) {
+            if (temp == node1 || temp == node2) return temp;
+            Node left = temp.left;
+            Node right = temp.right;
+
+            if ((isLeft(temp, node1) && isRight(temp, node2))
+                    || (isLeft(temp, node2) && isRight(temp, node1))) {
+                return temp;
+            } else {
+                if (isRight(temp, node1)) {
+                    temp = right;
+                } else {
+                    temp = left;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Find the longest increasing subarray like {123457843456786} ==> {3456786}
      * This means first increasing and only one down in the end.
      * @param arr

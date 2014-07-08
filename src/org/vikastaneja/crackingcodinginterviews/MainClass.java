@@ -9,6 +9,51 @@ import java.util.Stack;
 public class MainClass {
     public static void main(String []args) {
 
+        Node root = new Node();
+        root.value = 1;
+        root.left = new Node();
+        root.right = new Node();
+        root.left.value = 2;
+        root.right.value = 3;
+        root.left.left = new Node();
+        root.left.right = new Node();
+        root.left.left.value = 4;
+        root.left.right.value = 5;
+
+        root.right.left = new Node();
+        root.right.right = new Node();
+        root.right.left.value = 6;
+        root.right.right.value = 7;
+
+        Node n1 = root.left;
+        Node n2 = root.right.right;
+
+        Node t = Chapter4.findLca(root, n1, n2);
+        if (t != root) {
+            throw new AssertionError("t and root are not same");
+        }
+
+        Node t1 = Chapter4.findLca(root, root, n2);
+        if (t1 != root) {
+            throw new AssertionError("t1 and root are not same");
+        }
+
+        Node t2 = Chapter4.findLca(root, root.right.left, n2);
+        if (t2 != root.right) {
+            throw new AssertionError("t2 and root.right are not same");
+        }
+
+        try {
+            Chapter4.findLca(null, n1, n2);
+        } catch (NullPointerException ex) {
+            if (!ex.getMessage().equals("Root in null")) {
+                throw ex;
+            }
+        }
+
+        if (Chapter4.findLca(root, null, n2) != null) {
+            throw new AssertionError("Null is not returned");
+        }
         Stack<Integer> stack = new Stack<Integer>();
         stack.push(1);
         stack.push(5);

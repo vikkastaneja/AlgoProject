@@ -8,6 +8,23 @@ import java.util.Stack;
  */
 public class MainClass {
     public static void main(String []args) {
+        int []b1 = {1,2,3,4,5,6};
+        System.out.println(Chapter10.findNumberInRotatedArray(b1, 4));
+
+        int []b2 = {5,6,1,2,3,4};
+        System.out.println(Chapter10.findNumberInRotatedArray(b2, 3));
+
+        int []b3 = {3,4,5,6,1,2};
+        System.out.println(Chapter10.findNumberInRotatedArray(b3, 4));
+
+        int []b4 = {1,1,3,5,5,6};
+        System.out.println(Chapter10.findNumberInRotatedArray(b4, 5));
+
+        int []b5 = {1,1,3,5,5,6};
+        System.out.println(Chapter10.findNumberInRotatedArray(b4, 4));
+
+        int []b6 = {3,4,5,6,1,2};
+        System.out.println(Chapter10.findNumberInRotatedArray(b4, 7));
 
         Node n11 = new Node(); n11.value = 1;
 

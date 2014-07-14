@@ -9,6 +9,37 @@ import java.util.Stack;
 public class MainClass {
     public static void main(String []args) {
 
+        Node n11 = new Node(); n11.value = 1;
+
+        Node n12 = new Node(); n12.value = 6;
+
+        Node n21 = new Node(); n21.value = 10;
+
+        Node n22 = new Node(); n22.value = 11;
+
+        Node n23 = new Node(); n23.value = -1;
+
+        Node n24 = new Node(); n24.value = 5;
+
+        Node n31 = new Node(); n31.value = 5;
+
+        Node n32 = new Node(); n32.value = 1;
+        n22.left = n31;
+        n23.right = n32;
+
+        n11.left = n21;
+        n11.right = n22;
+
+        n12.left = n23;
+        n12.right = n24;
+
+        Node r1 = new Node();
+        r1.value = 5;
+        r1.left = n11;
+        r1.right = n12;
+
+        Chapter4.printSumInBinaryTree(r1, 11);
+
         Node root = new Node();
         root.value = 1;
         root.left = new Node();

@@ -11,6 +11,64 @@ import java.util.List;
 public class Chapter4 {
 
     /**
+     * Problem 4.9: Given a binary tree, print all paths within the tree for which the sum equals a given number<br/>
+     * The strategy is to keep an list that keep track of the path till current node <br/>
+     * At each node, traverse in reverse and find if there are paths for which the sum equals given value. If so, print it.
+     * @param root
+     * @param n
+     */
+    public static void printSumInBinaryTree(Node root, int n) {
+        if (root == null) {
+            throw new NullPointerException("Root in null");
+        }
+
+        List<Node> list = new ArrayList<Node>();
+        printSum(root, list, n, -1);
+    }
+
+    /**
+     * Helper function for {@link org.vikastaneja.crackingcodinginterviews.Chapter4#printSumInBinaryTree(Node, int)} <br/>
+     * This function prints the sum by keeping a list with current path.
+     * @param current
+     * @param list
+     * @param n
+     * @param currentDepth
+     */
+    private static void printSum(Node current, List<Node> list, int n, int currentDepth) {
+        if (current == null) return;
+        if (list == null) throw new NullPointerException("List is null, please initialize the lit before its use.");
+        currentDepth++;
+        list.add(currentDepth, current);
+        int sum = 0;
+        for (int i = currentDepth; i >= 0; i--) {
+            sum += list.get(i).value;
+            if (sum == n) printArray(list, i, currentDepth);
+        }
+
+        printSum(current.left, list, n, currentDepth);
+        printSum(current.right, list, n, currentDepth);
+    }
+
+    /**
+     * Helper function to {@link org.vikastaneja.crackingcodinginterviews.Chapter4#printSum(Node, java.util.List, int, int)}<br/>
+     * This function prints the values
+     * @param list
+     * @param current
+     * @param currentDepth
+     */
+    private static void printArray(List<Node> list, int current, int currentDepth) {
+        if (list == null || current >= list.size() || current < 0) {
+            return;
+        }
+
+        for (int i = current; i <= currentDepth; i++)
+            System.out.print(list.get(i).value + " ");
+
+        System.out.println();
+    }
+
+
+    /**
      * Helper function to find if the node is in a subtree<br/>
      * Helper function for {@link org.vikastaneja.crackingcodinginterviews.Chapter4#findLca(Node, Node, Node)}
      * @param node

@@ -64,7 +64,5 @@ public class LinkedList {
             temp.next = temp1;
             temp = temp.next;
         }
-
-
     }
 }

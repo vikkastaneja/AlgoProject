@@ -4,6 +4,15 @@ package org.vikastaneja.crackingcodinginterviews;
  * Created by vikastaneja on 7/13/14.
  */
 public class Chapter10 {
+
+    /**
+     * Find if a number is in the array where the array is in increasing order and is rotated<br/>
+     * Logic is find the strictly ordered partition first. If the number is in the strictly ordered partition, we apply binary search in the partition<br/>
+     * Else, set the left or right to mid + 1 or mid - 1 based on the values.
+     * @param a - input array
+     * @param n - number to be searched for
+     * @return  true or false
+     */
     public static boolean findNumberInRotatedArray(int []a, int n) {
         if (a == null) throw new NullPointerException("Array is null");
 
@@ -38,6 +47,14 @@ public class Chapter10 {
         return false;
     }
 
+    /**
+     * Helper binary search functionality for {@link org.vikastaneja.crackingcodinginterviews.Chapter10#findNumberInRotatedArray(int[], int)}
+     * @param a
+     * @param l
+     * @param r
+     * @param n
+     * @return
+     */
     private static boolean bsearch(int[] a, int l, int r, int n) {
         int left = l;
         int right = r;

@@ -67,4 +67,54 @@ public class Chapter10 {
 
         return false;
     }
+
+    /**
+     * Given an MxN sorted matrix - rows are sorted and columns are sorted. Find the element in it.<br/>
+     * Strategy is to first apply binary search on the last column and then apply the same on the row.
+     * @param a
+     * @param n
+     * @return  true if the element is present, false if element is not present. Throws null pointer exception when array is null.
+     */
+    public static boolean findElementInArray(int [][]a, int n) {
+        if (a == null)
+            throw new NullPointerException("Array is null");
+
+        if (a.length == 0) {
+            return false;
+        }
+
+        if (n < a[0][0] || n > a[a.length - 1][a[0].length - 1])
+            return false;
+
+        int c = a[0].length - 1;
+        int top = 0;
+        int bottom = a.length - 1;
+        while (top <= bottom) {
+            int mid = (top + bottom) / 2;
+            if (a[mid][c] == n)
+                return true;
+
+            if (a[mid][c] > n)
+                bottom = mid - 1;
+            else
+                top = mid + 1;
+        }
+
+        int row = top;
+        int left = 0;
+        int right = a[0].length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (a[row][mid] == n)
+                return true;
+
+            if (n < a[row][mid])
+                right = mid - 1;
+            else
+                left = mid + 1;
+        }
+
+        return false;
+    }
 }

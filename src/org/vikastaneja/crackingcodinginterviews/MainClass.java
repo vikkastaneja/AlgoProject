@@ -8,6 +8,19 @@ import java.util.Stack;
  */
 public class MainClass {
     public static void main(String []args) {
+        int [][]a123 = {{1,2,4,6}, {3,5,6,7}, {4,7,9,10}, {6,10,12,15}, {10,15,20,25}};
+
+        System.out.println(Chapter10.findElementInArray(a123,9));
+        System.out.println(Chapter10.findElementInArray(a123, -1));
+        System.out.println(Chapter10.findElementInArray(a123, 30));
+        System.out.println(Chapter10.findElementInArray(a123, 11));
+
+        try {
+            Chapter10.findNumberInRotatedArray(null, 9);
+        } catch (NullPointerException ex) {
+            if (!ex.getMessage().equals("Array is null")) throw ex;
+        }
+
         int []b1 = {1,2,3,4,5,6};
         System.out.println(Chapter10.findNumberInRotatedArray(b1, 4));
 

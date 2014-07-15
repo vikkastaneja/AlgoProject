@@ -1,8 +1,6 @@
 package org.vikastaneja.examples;
 
 import com.google.common.base.Preconditions;
-import com.sun.swing.internal.plaf.synth.resources.synth_sv;
-import org.omg.CORBA.INTERNAL;
 
 import java.util.*;
 

@@ -227,4 +227,44 @@ public class StringProcessing {
         str = new String (ch);
         return;
     }
+
+    /**
+     * Given a sentence, find the common prefix for all words in the sentence.<br/>
+     * Assuming that the words are delimited by space character, we will not find any words separately and then iterate over characters.
+     * @param sentence
+     * @return
+     */
+    public static String findCommonPrefix(final String sentence) {
+        if (sentence  == null) throw new NullPointerException("String is null");
+
+        if (sentence.length() == 0) return "";
+
+        // Initialize LP first
+        StringBuilder LP = new StringBuilder();
+        for (int i = 0; sentence.charAt(i) != ' '; i++) {
+            LP.append(sentence.charAt(i));
+        }
+
+        // Move the forward pointer to the next non-space character
+        int next = LP.length();
+        while (next < sentence.length()) {
+            int s = next;
+            while (s < sentence.length() && sentence.charAt(s) == ' ') s++;
+            if (s == sentence.length()) return LP.toString();
+
+            StringBuilder temp = new StringBuilder();
+            for (int j = 0; j < LP.length() && s < sentence.length() && sentence.charAt(s) == LP.charAt(j); j++, s++) {
+                temp.append(LP.charAt(j));
+            }
+
+            LP = null;
+            LP = temp;
+            if (LP.length() == 0) return LP.toString();
+            if (s == sentence.length()) return LP.toString();
+            while (s < sentence.length() && sentence.charAt(s) != ' ') s++;
+            next = s;
+        }
+
+        return LP.toString();
+    }
 }

@@ -12,7 +12,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-
+        String sentence = "abcbc abcbcbc abc";
+        String prefix = StringProcessing.findCommonPrefix(sentence);
         int[] arr123 = {1,0,0,5,6,0,1};
         ArrayProblems.moveZeroesToEnd(arr123);
 

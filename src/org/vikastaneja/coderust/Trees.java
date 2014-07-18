@@ -12,6 +12,50 @@ public class Trees {
 	private static int nth;
 
     /**
+     * Delete subtrees in a binary tree for a given sum<br/>
+     * Idea is to perform DFS. At every node, see if the subtree sum is zero. If it is, then delete the subtree.
+     * @param root
+     * @param n
+     */
+    public static void deleteSubtree(Node root, int n) {
+        if (root == null)
+            throw new NullPointerException("Root is null");
+
+        int sum = deleteFromTree(root, null, n);
+        if (sum == n)
+            root = null;
+    }
+
+    /**
+     * Helper function for {@link org.vikastaneja.coderust.Trees#deleteSubtree(org.vikastaneja.crackingcodinginterviews.Node, int)}<br/>
+     * The idea is mentioned in the javadocs for main function. Here, we only need an additional parameter - parent of the current node.
+     * @param current
+     * @param parent
+     * @param n
+     * @return
+     */
+    private static int deleteFromTree(Node current, Node parent, int n) {
+        if (current == null)
+            return 0;
+
+        int sum = current.value +
+                    deleteFromTree(current.left, current, n) +
+                    deleteFromTree(current.right, current, n);
+
+        if (sum == n) {
+            if (parent != null) {
+                if (parent.left == current) {
+                    parent.left = null;
+                } else {
+                    parent.right = null;
+                }
+            }
+        }
+
+        return sum;
+    }
+
+    /**
      * Print the nth largest node in a binary search tree (BST)
      * @param tree
      * @param n

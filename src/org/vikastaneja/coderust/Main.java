@@ -8,6 +8,19 @@ import org.vikastaneja.crackingcodinginterviews.Node;
 public class Main {
     public static void main(String[] args) {
 
+        int[]array123 = {1,2,2,4,4,4,4,4,5,6,7};
+        System.out.println(Arrays.count(array123,4));
+        System.out.println(Arrays.count(array123,2));
+        System.out.println(Arrays.count(array123,3));
+        array123 = new int[0];
+        System.out.println(Arrays.count(array123, 3));
+        try {
+            Arrays.count(null, 4);
+        } catch(NullPointerException ex) {
+            if (!ex.getMessage().equals("Array passed is null"))
+                throw ex;
+        }
+
         Node tree1 = new Node();
         tree1.value = 10;
         tree1.left = new Node();

@@ -7,7 +7,10 @@ import org.vikastaneja.crackingcodinginterviews.Node;
  */
 public class Main {
     public static void main(String[] args) {
-
+        int []a111 = { 1, 3, 5, 7, 9};
+        int []b111 = { 2, 6, 8, 20, 34};
+        System.out.println("Kth largest element is: " + Arrays.returnKthInSortedArrays(a111, b111, 4));
+        System.out.println(Arrays.returnKthInSortedArrays(a111, b111, 7));
         int[]array123 = {1,2,2,4,4,4,4,4,5,6,7};
         System.out.println(Arrays.count(array123,4));
         System.out.println(Arrays.count(array123,2));

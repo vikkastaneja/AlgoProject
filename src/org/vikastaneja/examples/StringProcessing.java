@@ -267,4 +267,60 @@ public class StringProcessing {
 
         return LP.toString();
     }
+
+    /**
+     * Reverse the words in a string, given that there is a set of delemiters that needs to be at the same place<br/>
+     * The idea is to run two pointers to identify a word. Once the word is found, reverse it.<br/>
+     * Note that the operation needs to be performed on a character array and later on that needs to be converted as a string.<br/>
+     * Simply don't return c.toString(), rather return new String(c), where c is the character array.
+     * @param s
+     * @return
+     */
+    public static String reverseWithDelimitersInPlace(String s) {
+        if (s == null)
+            throw new NullPointerException("Passed string is null");
+
+        if (s.length() <= 1)
+            return s;
+
+        Map<Character, Boolean> m = new HashMap<Character, Boolean>();
+        m.put(' ', true);
+        m.put('.', true);
+        m.put(',', true);
+        char []c = s.toCharArray();
+        for (int i = 0; i < c.length; ) {
+            int j = i;
+            while (j < c.length) {
+                if (!m.containsKey(c[j]))
+                    j++;
+                else
+                    break;;
+            }
+
+            reverseWord(c, i, j - 1);
+            i = j ;
+            while (i < c.length && m.containsKey(c[i])) {
+                i++;
+            }
+        }
+
+        return new String(c);
+    }
+
+    /**
+     * Helper function to {@link org.vikastaneja.examples.StringProcessing#reverseWithDelimitersInPlace(String)}<br/>
+     * This function performs reversal of character array between two indices.
+     * @param c
+     * @param i
+     * @param j
+     */
+    private static void reverseWord(char[] c, int i, int j) {
+        while (i <= j) {
+            char ch = c[i];
+            c[i] = c[j];
+            c[j] = ch;
+            i++;
+            j--;
+        }
+    }
 }

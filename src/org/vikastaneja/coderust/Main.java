@@ -1,6 +1,7 @@
 package org.vikastaneja.coderust;
 
 import org.vikastaneja.crackingcodinginterviews.Node;
+import org.vikastaneja.examples.Arr;
 
 /**
  * Created by vikastaneja on 4/8/14.
@@ -11,6 +12,8 @@ public class Main {
         int []b111 = { 2, 6, 8, 20, 34};
         System.out.println("Kth largest element is: " + Arrays.returnKthInSortedArrays(a111, b111, 4));
         System.out.println(Arrays.returnKthInSortedArrays(a111, b111, 7));
+
+        Arrays.rotate(a111, 3);
         int[]array123 = {1,2,2,4,4,4,4,4,5,6,7};
         System.out.println(Arrays.count(array123,4));
         System.out.println(Arrays.count(array123,2));

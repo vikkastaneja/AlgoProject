@@ -6,11 +6,11 @@ package org.vikastaneja.coderust;
 public class Arrays {
 
     /**
-     * Count number of elements in a sorted array
-     * Approaches we discussed:
-     * 1. Having a hashtable - O(length of the array)
-     * 2. Having binary search and then linear for the both sides
-     * 3. Having binary search to find out high and low indices.
+     * Count number of elements in a sorted array<br/>
+     * Approaches we discussed:<br/>
+     * 1. Having a hashtable - O(length of the array)<br/>
+     * 2. Having binary search and then linear for the both sides<br/>
+     * 3. Having binary search to find out high and low indices.<br/>
      * Implemented #3 below.
      * @param sorted
      * @param number
@@ -147,5 +147,37 @@ public class Arrays {
         }
 
         return Integer.MIN_VALUE;
+    }
+
+    public static void rotate(int[]a, int n) {
+        if (a == null)
+            throw new NullPointerException("Array passed is null");
+
+        if (a.length <= 1) {
+            System.out.println("Array length is either zero or one, hence no need for rotation");
+            return;
+        }
+
+        if (n <= 0 || n > a.length) {
+            System.out.println("Array can't be rotated since the rotation value is invalid.\nPassed value is: " + n);
+            return;
+        }
+
+        reverse(a, 0, a.length - 1);
+        if (n == a.length)
+            return;
+
+        reverse(a, 0, a.length - n - 1);
+        reverse(a, a.length - n, a.length - 1);
+    }
+
+    private static void reverse(int[] a, int s, int e) {
+        while(s <= e) {
+            int temp = a[s];
+            a[s] = a[e];
+            a[e] = temp;
+            s++;
+            e--;
+        }
     }
 }

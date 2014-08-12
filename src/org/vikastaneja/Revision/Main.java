@@ -7,6 +7,10 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[]args) {
+        int []server = {8, 16, 4};
+        int []jobs = {9, 4};
+        boolean b = BinFitAlgorithm.serverFit(server, jobs);
+
         int [][]a = {{0, 1, 0, 0, 3},
                 {0, 3, 3, 0, 0},
                 {0, 0, 0, 0, 2},

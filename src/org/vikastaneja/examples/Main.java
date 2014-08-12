@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         String sentence = "abcbc abcbcbc abc";
         String prefix = StringProcessing.findCommonPrefix(sentence);
-        String revWord = MiscPrograms.reverseWithDelimitersInPlace(sentence);
+        String revWord = StringProcessing.reverseWithDelimitersInPlace(sentence);
         int[] arr123 = {1,0,0,5,6,0,1};
         ArrayProblems.moveZeroesToEnd(arr123);
 

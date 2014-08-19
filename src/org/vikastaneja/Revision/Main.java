@@ -35,5 +35,10 @@ public class Main {
         int []subset = {1,2,3,4,5};
         System.out.println("Subsets of array: ");
         Subset.printAllSubsets(subset);
+
+        // Merge sort
+        int []arr = {6, 9, 5, 1, 0, 8, 10, 2};
+        MergeSort.sort(arr);
+
     }
 }

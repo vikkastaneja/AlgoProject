@@ -40,5 +40,46 @@ public class Main {
         int []arr = {6, 9, 5, 1, 0, 8, 10, 2};
         MergeSort.sort(arr);
 
+        System.out.println("Sorted array is:");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        try {
+            MergeSort.sort(null);
+        } catch (NullPointerException ex) {
+            if (ex.getMessage() != "Array is null")
+                throw ex;
+        }
+
+        int []tarr = {};
+        MergeSort.sort(tarr);
+
+        int []tarr1 = {1};
+        MergeSort.sort(tarr1);
+
+        int []tarr2 = {3, 2};
+        MergeSort.sort(tarr2);
+        System.out.println("Sorted array is:");
+        for (int i : tarr2) {
+            System.out.print(i + " ");
+        }
+
+        System.out.println();
+
+        int size = 1000000;
+        int []vl = new int[size];
+        for (int i = 0; i < size; i++)
+            vl[i] = size  - i;
+
+        MergeSort.sort(vl);
+
+        System.out.println("Sorted array is:");
+        for (int i : vl) {
+            System.out.print(i + " ");
+        }
+
+        System.out.println();
     }
 }

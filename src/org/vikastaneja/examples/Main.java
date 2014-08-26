@@ -9,9 +9,11 @@ package org.vikastaneja.examples;
 
 import java.util.*;
 
-
 public class Main {
     public static void main(String[] args) {
+        String permutations = "abc";
+        List<String> listp = null;
+        listp=StringProcessing.allPermutationsInList(permutations);
         String sentence = "abcbc abcbcbc abc";
         String prefix = StringProcessing.findCommonPrefix(sentence);
         String revWord = StringProcessing.reverseWithDelimitersInPlace(sentence);

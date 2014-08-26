@@ -2,7 +2,9 @@ package org.vikastaneja.examples;
 
 import com.google.common.base.Preconditions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -322,5 +324,35 @@ public class StringProcessing {
             i++;
             j--;
         }
+    }
+
+    public static List<String> allPermutationsInList(String s) {
+        if (s == null) {
+            throw new NullPointerException("String is null");
+        }
+
+        List<String> l = new ArrayList<String>();
+        if (s.length() == 0) {
+            return l;
+        }
+
+
+        l.addAll(permute(s, ""));
+        return l;
+    }
+
+    private static List<String> permute(String s, String s1) {
+        List<String> l = new ArrayList<String>();
+        if (s.length() == 0) {
+
+            l.add(s1);
+            return l;
+        } else {
+            for (int i = 0; i < s.length(); i++) {
+                l.addAll(permute(s.substring(0, i) + s.substring(i + 1, s.length()), s1 + s.charAt(i)));
+            }
+        }
+
+        return l;
     }
 }

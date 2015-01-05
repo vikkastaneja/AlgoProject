@@ -124,5 +124,7 @@ public class MiscExamples {
         ex.getInput(0);
         System.out.println(ex.hasSum(0));
         System.out.println(ex.hasSum(30));
+        int [][]a = {{0,0,0,0,0},{0,1,1,1,0},{0,1,0,1,0},{0,1,1,1,0},{0,0,0,0,0}};
+        System.out.println("====> " + MatrixProblems.IsGoGameOver(a));
     }
 }
